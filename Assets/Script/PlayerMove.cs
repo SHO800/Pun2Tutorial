@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class PlayerMove : MonoBehaviourPunCallbacks
 {
-    private float speed = 0.05f;
+    private float speed = 0.01f;
     
     void Update()
     {

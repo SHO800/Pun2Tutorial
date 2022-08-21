@@ -3,7 +3,7 @@ using Photon.Realtime;
 using UnityEngine;
 
 //MonoBehaviourPunCallbacksを継承することでPUNのコールバックを受け取れるようにするらしい
-public class SampleScene : MonoBehaviourPunCallbacks{
+public class PhotonLogin : MonoBehaviourPunCallbacks{
 
     public Camera mainCamera;
 
@@ -28,6 +28,6 @@ public class SampleScene : MonoBehaviourPunCallbacks{
         GameObject avatar = PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
 
         mainCamera.transform.parent = avatar.transform;
-        mainCamera.transform.position = avatar.transform.position;
+        mainCamera.transform.localPosition = new Vector3(0f,0f,-10f);
     }
 }
