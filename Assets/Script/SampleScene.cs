@@ -6,7 +6,6 @@ using UnityEngine;
 public class SampleScene : MonoBehaviourPunCallbacks{
 
     public Camera mainCamera;
-    public Camera playerCamera;
 
     private void Start(){
         //プレイヤー名を"Player"に設定する
@@ -26,9 +25,9 @@ public class SampleScene : MonoBehaviourPunCallbacks{
         //ランダムな座標に自身のアバター(ネットワークオブジェクトというそう)を生成する
         var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
         //おそらく"Avatar"の部分が自身のアバターのプレハブ、positionは配列みたい?
-        PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
+        GameObject avatar = PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
 
-        mainCamera.enabled = false;
-        playerCamera.enabled = true;
+        mainCamera.transform.parent = avatar.transform;
+        mainCamera.transform.position = avatar.transform.position;
     }
 }
