@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 1010008938}
   - component: {fileID: 1010008939}
   m_Layer: 0
-  m_Name: SampleScene
+  m_Name: PhotonLogin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
