@@ -4,6 +4,10 @@ using UnityEngine;
 
 //MonoBehaviourPunCallbacksを継承することでPUNのコールバックを受け取れるようにするらしい
 public class SampleScene : MonoBehaviourPunCallbacks{
+
+    public Camera mainCamera;
+    public Camera playerCamera;
+
     private void Start(){
         //プレイヤー名を"Player"に設定する
         PhotonNetwork.NickName = "Player";
@@ -23,5 +27,8 @@ public class SampleScene : MonoBehaviourPunCallbacks{
         var position = new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f));
         //おそらく"Avatar"の部分が自身のアバターのプレハブ、positionは配列みたい?
         PhotonNetwork.Instantiate("Avatar", position, Quaternion.identity);
+
+        mainCamera.enabled = false;
+        playerCamera.enabled = true;
     }
 }
